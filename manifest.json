@@ -1,0 +1,26 @@
+{
+  "name": "Hello Extensions",
+  "description" : "Base Level Extension",
+  "version": "1.0",
+  "browser_action": {
+    "default_popup": "hello.html",
+    "default_icon": "hello_extensions.png"
+  },
+  "background": {
+    "scripts": [
+      "background.js"
+    ],
+    "persistent": true
+  },
+  "manifest_version": 2,
+  "permissions": [
+    "storage",
+    "tabs",
+    "debugger",
+    "activeTab",
+    "<all_urls>",
+    "webRequest",
+    "webRequestBlocking",
+    "downloads"
+  ]
+}

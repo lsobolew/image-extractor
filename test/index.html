@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body {
+                margin: 0;
+            }
+            #img1 {
+                max-width: 100%;
+                width: 531px;
+                height: 469px;
+                padding: 50px;
+                box-sizing: border-box;
+                background: url('img.png');
+                /* background-size: cover; */
+                border: 50px solid rgba(0, 0, 0, .4);
+                opacity: 0.7;
+                background-origin: content-box;
+            }
+            #img1::before {
+                content: 'before';
+            }
+            #img1::after {
+                content: 'after';
+            }
+
+
+            #img2 {
+                padding: 50px;
+                width: 100% !important;
+                box-sizing: border-box;
+                background: url('bg.jpg');
+                background-size: cover;
+                background-color: #00afec;
+                background-position: center;
+                line-height: 4;
+                background-blend-mode: multiply;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="img1">
+            content text
+        </div>
+        <div id="img2">
+            <div>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis dolorum neque, optio ab obcaecati est ut odio sapiente at illo. Nemo hic voluptatibus vero, perferendis maxime consequatur, molestiae est vel?
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis dolorum neque, optio ab obcaecati est ut odio sapiente at illo. Nemo hic voluptatibus vero, perferendis maxime consequatur, molestiae est vel?
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis dolorum neque, optio ab obcaecati est ut odio sapiente at illo. Nemo hic voluptatibus vero, perferendis maxime consequatur, molestiae est vel?
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis dolorum neque, optio ab obcaecati est ut odio sapiente at illo. Nemo hic voluptatibus vero, perferendis maxime consequatur, molestiae est vel?
+            </div>
+        </div>
+    </body>
+</html>
