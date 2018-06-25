@@ -8,6 +8,8 @@ chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
             var computedStyles = getComputedStyle(el);
             var elementSizes = el.getBoundingClientRect();
             var elementFixedSize = {};
+
+
             // console.log(elementSizes, el);
 
             if(el !== currentElementWithBackgroundImage) {
@@ -30,6 +32,13 @@ chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
                 }
 
                 el.setAttribute('style', el.getAttribute('style') + '/* xxx */;width:' + elementFixedSize.width +'px !important;height:' + elementFixedSize.height + 'px !important/* yyy */')
+
+                getImageNaturalSize(computedStyles.backgroundImage.match(/url\(["']?([^"']*)["']?\)/)[1])
+                .then(function(response){
+                    console.log(response);
+                }).catch(function(e){
+                    console.error(e);
+                })
             }
         });
 
@@ -90,4 +99,17 @@ function addCssClasses() {
     style.sheet.insertRule(".imageextractor-hide-text { color: transparent !important }");
     style.sheet.insertRule("html::-webkit-scrollbar { opacity: 0 !important; width: 0 !important, visibility: hidden !important }");
     style.sheet.insertRule("body::-webkit-scrollbar { opacity: 0 !important; width: 0 !important, visibility: hidden !important }");
+}
+
+function getImageNaturalSize(url){
+    return new Promise(function(resolve, reject){
+        var img = new Image();
+        img.addEventListener("load", function(){
+            resolve({
+                width: img.naturalWidth,
+                height: this.naturalHeight
+            });
+        });
+        img.src = url;
+    });
 }

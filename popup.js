@@ -69,7 +69,7 @@ function onAttach(debuggeeId) {
         return new Promise(function(resolve, reject){
             chrome.debugger.sendCommand(debuggeeId, "DOM.querySelector", {
                 nodeId: documentRoot.nodeId,
-                selector: '#img2'
+                selector: '#img3'
             }, function(response){
                 resolve(response);
             });
